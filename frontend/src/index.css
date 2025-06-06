@@ -1,0 +1,621 @@
+/* frontend/src/index.css */
+
+/* --- Variables & Base --- */
+:root {
+  --primary-color: #3498db; /* A vibrant blue */
+  --primary-hover-color: #2980b9;
+  --secondary-color: #2ecc71; /* A fresh green */
+  --secondary-hover-color: #27ae60;
+  --danger-color: #e74c3c;
+  --danger-hover-color: #c0392b;
+  --light-gray-color: #ecf0f1;
+  --medium-gray-color: #bdc3c7;
+  --dark-gray-color: #7f8c8d;
+  --text-color: #34495e;
+  --text-light-color: #566573;
+  --background-color: #f8f9fa; /* Off-white background */
+  --card-background-color: #ffffff;
+  --border-color: #dde1e3;
+  --navbar-background: #2c3e50; /* Darker, sophisticated navbar */
+  --navbar-text-color: #ecf0f1;
+  --navbar-hover-bg: #34495e;
+
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --border-radius: 6px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --box-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
+  --transition-speed: 0.2s ease-in-out;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  background-color: var(--light-gray-color);
+  padding: 0.2em 0.4em;
+  border-radius: var(--border-radius);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 25px 20px;
+}
+
+/* --- Navbar --- */
+nav {
+  background-color: var(--navbar-background);
+  padding: 0.75rem 1rem;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin-right: 15px;
+}
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a,
+nav ul li button {
+  color: var(--navbar-text-color);
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
+}
+
+nav ul li a:hover,
+nav ul li button:hover {
+  background-color: var(--navbar-hover-bg);
+  color: #fff;
+}
+
+nav ul li button {
+  line-height: normal; /* Ensure button text aligns well */
+}
+
+/* Utility to push items to the right in navbar */
+nav ul li.nav-spacer {
+  margin-right: auto;
+}
+nav ul li.nav-greeting {
+  color: var(--navbar-text-color);
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* --- Headings & Text --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+h1 {
+  font-size: 2.2rem;
+}
+h2 {
+  font-size: 1.8rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-light-color);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+a:hover {
+  color: var(--primary-hover-color);
+  text-decoration: underline;
+}
+
+/* --- Forms --- */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+  font-size: 1rem;
+  background-color: var(--card-background-color);
+  color: var(--text-color);
+  transition: border-color var(--transition-speed),
+    box-shadow var(--transition-speed);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2); /* Focus ring */
+}
+
+.form-group input[type="file"] {
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+}
+.form-group input[type="file"]::file-selector-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color var(--transition-speed);
+}
+.form-group input[type="file"]::file-selector-button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+/* --- Buttons --- */
+button,
+.btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed), box-shadow var(--transition-speed);
+  display: inline-block; /* For <a> tags styled as buttons */
+  text-decoration: none; /* For <a> tags */
+}
+button:hover,
+.btn:hover {
+  background-color: var(--primary-hover-color);
+  transform: translateY(-1px);
+  box-shadow: var(--box-shadow-hover);
+  color: white; /* Ensure text color remains on hover for <a> */
+  text-decoration: none; /* Ensure no underline on hover for <a> */
+}
+button:disabled,
+.btn:disabled {
+  background-color: var(--medium-gray-color);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+}
+.btn-secondary:hover {
+  background-color: var(--secondary-hover-color);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+}
+.btn-danger:hover {
+  background-color: var(--danger-hover-color);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* --- Alerts / Messages --- */
+.error-message,
+.success-message,
+.info-message {
+  padding: 15px;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.error-message {
+  color: #721c24; /* Darker red text */
+  background-color: #f8d7da; /* Lighter red background */
+  border-color: #f5c6cb;
+}
+
+.success-message {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.info-message {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+/* --- Publication Card --- */
+.publication-card {
+  background-color: var(--card-background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 25px;
+  margin-bottom: 20px; /* Only if not in grid */
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-speed),
+    box-shadow var(--transition-speed);
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* For consistent height in grid */
+}
+.publication-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.publication-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+.publication-card h3 a {
+  color: var(--text-color);
+}
+.publication-card h3 a:hover {
+  color: var(--primary-color);
+}
+
+.publication-card p {
+  font-size: 0.9rem;
+  color: var(--text-light-color);
+  margin-bottom: 8px;
+}
+.publication-card p strong {
+  color: var(--text-color);
+  font-weight: 500;
+}
+.publication-card .actions {
+  margin-top: auto; /* Push actions to the bottom */
+  padding-top: 15px;
+}
+.publication-card .actions .btn {
+  margin-right: 10px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+}
+.publication-card .actions .btn:last-child {
+  margin-right: 0;
+}
+
+.publication-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+/* --- Pagination --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  padding: 10px 0;
+}
+
+.pagination button {
+  background-color: var(--card-background-color);
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  padding: 8px 14px;
+  margin: 0 5px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed), border-color var(--transition-speed);
+  font-weight: 500;
+}
+.pagination button:hover:not(:disabled) {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+.pagination button:disabled {
+  color: var(--medium-gray-color);
+  background-color: var(--light-gray-color);
+  cursor: not-allowed;
+  border-color: var(--border-color);
+}
+.pagination button.active {
+  /* You might need to add 'active' class via JS */
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* --- Loading Spinner (Simple) --- */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px; /* Give it some space */
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  /* For a more advanced spinner, you'd use an SVG or CSS animation */
+}
+.loading-spinner::after {
+  content: "Loading...";
+}
+
+/* --- Publication Detail Page --- */
+.publication-detail {
+  background-color: var(--card-background-color);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.publication-detail h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.publication-detail .meta-info {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-light-color);
+  border-bottom: 1px solid var(--light-gray-color);
+  padding-bottom: 1rem;
+}
+.publication-detail .meta-info p {
+  margin: 8px 0;
+}
+.publication-detail .meta-info strong {
+  color: var(--text-color);
+  min-width: 120px; /* Align keys a bit */
+  display: inline-block;
+}
+
+.publication-detail .description {
+  margin-bottom: 2rem;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.publication-detail .actions {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.publication-detail .actions .btn,
+.publication-detail .actions button {
+  margin-right: 10px;
+}
+.publication-detail .actions .btn:last-child,
+.publication-detail .actions button:last-child {
+  margin-right: 0;
+}
+
+/* Review Section on Detail Page */
+.review-section {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid var(--light-gray-color);
+}
+.review-section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+}
+
+/* --- Tables (for Admin pages) --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+  background-color: var(--card-background-color);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  overflow: hidden; /* For rounded corners on table */
+}
+
+table th,
+table td {
+  border-bottom: 1px solid var(--border-color);
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+table th {
+  background-color: var(--light-gray-color);
+  color: var(--text-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+table tr:last-child td {
+  border-bottom: none;
+}
+table tr:hover td {
+  background-color: var(--background-color); /* Subtle hover for rows */
+}
+table .btn {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  margin-right: 5px;
+}
+
+/* --- Dashboard Specific --- */
+.dashboard-container {
+  padding: 20px 0; /* Remove side padding if container class handles it */
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+.dashboard-header h1 {
+  margin-bottom: 0;
+}
+
+/* Filter Form (e.g., on HomePage, AdminPublicationManagementPage) */
+.filter-form {
+  background-color: var(--card-background-color);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 30px;
+}
+.filter-form .filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-end; /* Align button nicely */
+}
+.filter-form .filter-controls input[type="text"],
+.filter-form .filter-controls input[type="number"],
+.filter-form .filter-controls select {
+  flex-grow: 1; /* Allow inputs to take space */
+  min-width: 150px; /* Minimum width for smaller inputs */
+  padding: 10px; /* Slightly smaller padding for filter inputs */
+  font-size: 0.9rem;
+  margin-bottom: 0; /* Remove form-group margin */
+}
+.filter-form .filter-controls button {
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  margin-left: 5px; /* Space before button */
+}
+
+/* Specific Alert Style (from PublicationDetailPage) */
+.alert.alert-warning {
+  /* Assuming .alert and .alert-warning classes are added in JSX */
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+  color: #856404;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  margin-top: 20px;
+  border: 1px solid;
+}
+.alert.alert-warning strong {
+  color: #856404;
+}
+
+/* Responsive Adjustments (Basic Example) */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  nav ul li a,
+  nav ul li button {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  nav ul li.nav-spacer {
+    display: none;
+  }
+  nav ul li.nav-greeting {
+    order: -1;
+    width: auto;
+    padding-left: 0;
+  } /* Bring greeting to top on mobile */
+
+  .publication-grid {
+    grid-template-columns: 1fr; /* Stack cards on smaller screens */
+  }
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .dashboard-header .btn {
+    margin-top: 10px;
+  }
+  .filter-form .filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filter-form .filter-controls button {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
